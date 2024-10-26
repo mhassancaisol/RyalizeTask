@@ -63,4 +63,17 @@ Opitmization for DB
 ALTER TABLE `transactions` ADD INDEX `user_id_index` (`user_id`)
 ALTER TABLE `transactions` ADD INDEX `location_id_index` (`location_id`)
 
+Security 
+CRF protection 
+X-CSRF-TOKEN
+
+Data request validation 
+$request->validated();
+Rules before interaction with logic
+Escape techniques
+rate limitations
+used query builder 
+Env file to prevent connectivity
+
+Route throttle
 ![Uploading image.png…]()
