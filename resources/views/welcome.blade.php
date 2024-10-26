@@ -21,7 +21,7 @@
         </style>
     </head>
     <body>
-    <h1>User Management</h1>
+    <h1>Assignment Task with pagination UI (if you are not able to see users than initiate a new JWT token)</h1>
     <form id="userForm">
         <input type="hidden" id="userID"  required>
         <input type="text" id="name" placeholder="name" required>
@@ -71,7 +71,8 @@
 
             const response = await fetch(url, {
                 method: method,
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'application/json',
+                'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3BheXJvbGwuY2Fpc29sLmNvbS9hcGkvbG9naW4iLCJpYXQiOjE3Mjk5NzM0NDYsImV4cCI6MTcyOTk3NzA0NiwibmJmIjoxNzI5OTczNDQ2LCJqdGkiOiJEY1JiQ0VvWGhpeXBhZWl0Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.mD5F-dwuOFlZbmoZRIHlkaL6N_z4_JxfUSHs3uOcHLk'},
                 body: JSON.stringify({ id: parseInt(userId), name: userName, email: userEmail, password: userPassword })
             });
             if (response.ok) {
@@ -83,7 +84,7 @@
             }
         });
 
-
+        // for basic UI we can use this code
         /*async function loadUsers() {
             const response = await fetch(APP_URL+'/api/users');
             const users = await response.json();
@@ -99,10 +100,13 @@
                 userList.appendChild(li);
             });
         }*/
+        // with Pagination UI we can use this code
         function loadUsers(page = 1) {
         $.ajax({
             url: APP_URL+'/api/users?page=' + page,
             type: 'GET',
+            headers: { 'Content-Type': 'application/json',
+                'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3BheXJvbGwuY2Fpc29sLmNvbS9hcGkvbG9naW4iLCJpYXQiOjE3Mjk5NzM0NDYsImV4cCI6MTcyOTk3NzA0NiwibmJmIjoxNzI5OTczNDQ2LCJqdGkiOiJEY1JiQ0VvWGhpeXBhZWl0Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.mD5F-dwuOFlZbmoZRIHlkaL6N_z4_JxfUSHs3uOcHLk'},
             dataType: 'json',
             success: function(data) {
                 let users = data.data;
@@ -128,6 +132,7 @@
                     paginationLinks += `<a href="#" data-page="${data.next_page_url.split('=')[1]}">Next</a>`;
                 }
                 $('#pagination-links').html(paginationLinks);
+                $('#pagination-links').append("<br>");
             }
         });
     }

@@ -16,6 +16,20 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TransactionController;
 
-Route::apiResource('users', UserController::class);
 
-Route::get('total-transactions', [TransactionController::class, 'totalTransactions']);
+
+
+use App\Http\Controllers\AuthController;
+
+Route::middleware(['throttle:10,1'])->group(function () {
+   
+Route::post('login', [AuthController::class, 'login']); // Public route
+//Route::get('total-transactions', [TransactionController::class, 'totalTransactions']);
+
+});
+
+Route::middleware(['jwt.auth'])->group(function () {
+    Route::middleware('throttle:10,1')->apiResource('users', UserController::class);
+    Route::get('total-transactions', [TransactionController::class, 'totalTransactions']);
+    Route::post('logout', [AuthController::class, 'logout']); // Protected route
+});
