@@ -44,6 +44,8 @@ Headers
 {
 Authorization:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3BheXJvbGwuY2Fpc29sLmNvbS9hcGkvbG9naW4iLCJpYXQiOjE3MzAxMzk1ODgsImV4cCI6MTczMDE0MzE4OCwibmJmIjoxNzMwMTM5NTg4LCJqdGkiOiJhZGYwY1BoeTZlVEpENnJ3Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ZSIrMXW4U82lJZzm0ls5ic7-n56RhNWbFUu7BQkDpVs
 }
+![Uploading Screenshot 2024-10-28 at 11.38.32 PM.png…]()
+
 with each request
 Single user by ID
 https://payroll.caisol.com/api/users?per_page=100&page=1
@@ -80,6 +82,7 @@ Add and load data through pagination
 API to get total transaction against data and Location ID
 GET total transactions count against date/location id /user ID 
 https://payroll.caisol.com/api/total-transactions?date=2024-10-26&location_id=4156&user_id=4156
+<img width="1440" alt="Screenshot 2024-10-28 at 11 37 40 PM" src="https://github.com/user-attachments/assets/cf6c05de-9a0a-4138-99d2-eab867edbeeb">
 
  
 Opitmization for DB
