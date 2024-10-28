@@ -30,6 +30,7 @@ to get jwt token
 
 Response you may get 
 {"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3BheXJvbGwuY2Fpc29sLmNvbS9hcGkvbG9naW4iLCJpYXQiOjE3MzAxMzk1ODgsImV4cCI6MTczMDE0MzE4OCwibmJmIjoxNzMwMTM5NTg4LCJqdGkiOiJhZGYwY1BoeTZlVEpENnJ3Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ZSIrMXW4U82lJZzm0ls5ic7-n56RhNWbFUu7BQkDpVs"}
+<img width="1440" alt="Screenshot 2024-10-28 at 11 38 32 PM" src="https://github.com/user-attachments/assets/e42d37a9-1d32-430f-9f0f-ee1e1310ef81">
 
 REST APIs for User (Basic CURD)
 
