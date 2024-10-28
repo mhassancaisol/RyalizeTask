@@ -18,12 +18,33 @@ User/Transaction/LocationSeeder
 
 
 
+POST https://payroll.caisol.com/api/login (can not request more than 10 request per window)
+with 
+{
+email=gregorio29@example.net,
+password=Test Password
+
+}
+ 
+to get jwt token
+
+Response you may get 
+{"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3BheXJvbGwuY2Fpc29sLmNvbS9hcGkvbG9naW4iLCJpYXQiOjE3MzAxMzk1ODgsImV4cCI6MTczMDE0MzE4OCwibmJmIjoxNzMwMTM5NTg4LCJqdGkiOiJhZGYwY1BoeTZlVEpENnJ3Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ZSIrMXW4U82lJZzm0ls5ic7-n56RhNWbFUu7BQkDpVs"}
+
 REST APIs for User (Basic CURD)
+
+Each time you request with token passing 
+Authorization : Bearer {token string}
 
 Get 
 https://payroll.caisol.com/api/users
 
 https://payroll.caisol.com/api/users/1
+Headers 
+{
+Authorization:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3BheXJvbGwuY2Fpc29sLmNvbS9hcGkvbG9naW4iLCJpYXQiOjE3MzAxMzk1ODgsImV4cCI6MTczMDE0MzE4OCwibmJmIjoxNzMwMTM5NTg4LCJqdGkiOiJhZGYwY1BoeTZlVEpENnJ3Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ZSIrMXW4U82lJZzm0ls5ic7-n56RhNWbFUu7BQkDpVs
+}
+with each request
 Single user by ID
 https://payroll.caisol.com/api/users?per_page=100&page=1
 default is 100 records per page
@@ -35,6 +56,7 @@ Name:”ABC”
 Email:”abc@yopmail.com”
 Password:”Abc@321!”
 }
+
 
 POST
 https://payroll.caisol.com/api/users
@@ -59,11 +81,13 @@ API to get total transaction against data and Location ID
 GET total transactions count against date/location id /user ID 
 https://payroll.caisol.com/api/total-transactions?date=2024-10-26&location_id=4156&user_id=4156
 
+ 
 Opitmization for DB
 ALTER TABLE `transactions` ADD INDEX `user_id_index` (`user_id`)
 ALTER TABLE `transactions` ADD INDEX `location_id_index` (`location_id`)
 
 Security 
+JWT
 CRF protection 
 X-CSRF-TOKEN
 
@@ -76,4 +100,4 @@ used query builder
 Env file to prevent connectivity
 
 Route throttle
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/09637942-73cd-4075-9e4d-e1e7ed826724)
